@@ -6,24 +6,19 @@ return array(
     'router'          => array(
         'routes' => array(
             'custom' => array(
-                //                'type'    => 'Regex',
                 'type'    => 'UrlRewrite\Router\Custom',
                 'options' => array(
                     'regex'    => '^/(?!admin?)(?<path>.*)',
                     //                    'regex' => '^/(?!admin?/)(?<path>.*)',
                     'defaults' => array(
-                        'controller' => 'Page\Controller\Index',
-                        'action'     => 'index',
+                        '__NAMESPACE__' => __NAMESPACE__ . 'Controller',
+                        'controller'    => 'redirect',
+                        'action'        => 'redirect',
                     ),
                     'spec'     => '/%path%',
                 ),
             ),
         ),
-    ),
-    'service_manager' => array(
-        //                'factories'          => array(
-        //                    'Router' => 'UrlRewrite\Service\RouterFactory',
-        //                ),
     ),
     'route_manager'   => array(
         'factories' => array(

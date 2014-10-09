@@ -28,4 +28,15 @@ class Module
             ),
         );
     }
+
+
+    // Controller Configuration
+    public function getControllerConfig()
+    {
+        return array(
+            'factories' => array(
+                'UrlRewrite\Controller\Redirect'   => 'UrlRewrite\Controller\RedirectControllerFactory',
+            )
+        );
+    }
 }
