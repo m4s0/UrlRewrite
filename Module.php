@@ -35,7 +35,7 @@ class Module
     {
         return array(
             'factories' => array(
-                'UrlRewrite\Controller\Redirect'   => 'UrlRewrite\Controller\RedirectControllerFactory',
+                'UrlRewrite\Controller\Redirect' => 'UrlRewrite\Controller\RedirectControllerFactory',
             )
         );
     }

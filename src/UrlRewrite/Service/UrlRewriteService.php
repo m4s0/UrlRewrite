@@ -10,12 +10,6 @@ use Zend\EventManager\EventManager;
 use Zend\EventManager\EventManagerAwareInterface;
 
 
-/**
- * Handles interaction with events (IE conferences)
- *
- * @author m4s0
- *
- */
 class UrlRewriteService
     implements EventManagerAwareInterface
 {

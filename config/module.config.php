@@ -3,7 +3,7 @@
 namespace UrlRewrite;
 
 return array(
-    'router'          => array(
+    'router'        => array(
         'routes' => array(
             'custom' => array(
                 'type'    => 'UrlRewrite\Router\Custom',
@@ -20,12 +20,12 @@ return array(
             ),
         ),
     ),
-    'route_manager'   => array(
+    'route_manager' => array(
         'factories' => array(
             'Router' => 'UrlRewrite\Service\RouterFactory'
         ),
     ),
-    'doctrine'        => array(
+    'doctrine'      => array(
         'driver' => array(
             // defines an annotation driver with two paths, and names it `my_annotation_driver`
             __NAMESPACE__ . '_driver' => array(

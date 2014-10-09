@@ -130,7 +130,7 @@ class Custom
         }
 
         // return a \Zend\Mvc\Router\RouteMatch instance
-//        return new RouteMatch($matchedRoute, strlen($this->route));
+        //        return new RouteMatch($matchedRoute, strlen($this->route));
         return new RouteMatch($this->defaults, strlen($this->route));
     }
 

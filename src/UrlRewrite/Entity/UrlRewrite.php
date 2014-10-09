@@ -46,7 +46,7 @@ class UrlRewrite
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -57,6 +57,7 @@ class UrlRewrite
      * Set requestUri
      *
      * @param string $requestUri
+     *
      * @return UrlRewrite
      */
     public function setRequestUri($requestUri)
@@ -69,7 +70,7 @@ class UrlRewrite
     /**
      * Get requestUri
      *
-     * @return string 
+     * @return string
      */
     public function getRequestUri()
     {
@@ -80,6 +81,7 @@ class UrlRewrite
      * Set route
      *
      * @param string $route
+     *
      * @return UrlRewrite
      */
     public function setRoute($route)
@@ -92,7 +94,7 @@ class UrlRewrite
     /**
      * Get route
      *
-     * @return string 
+     * @return string
      */
     public function getRoute()
     {
@@ -103,6 +105,7 @@ class UrlRewrite
      * Set routeMatch
      *
      * @param array $routeMatch
+     *
      * @return UrlRewrite
      */
     public function setRouteMatch($routeMatch)
