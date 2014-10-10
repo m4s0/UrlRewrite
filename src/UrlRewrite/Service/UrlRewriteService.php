@@ -36,7 +36,7 @@ class UrlRewriteService
     {
         try {
             /** @var \UrlRewrite\Entity\UrlRewrite $route */
-            $route = $this->UrlRewriteRepository->findOneBy(array('requestUri' => $requestPath));
+            $route = $this->UrlRewriteRepository->findOneBy(array('RewriteUrl' => $requestPath));
 
             if (null == $route) {
                 return null;
@@ -49,12 +49,13 @@ class UrlRewriteService
         }
     }
 
-    public function setRouteMatch(\Zend\Mvc\Router\Http\RouteMatch $routeMatch, $requestUri, $route)
+    public function setRouteMatch($rewriteUrl, $requestUri, $matchedRouteName, \Zend\Mvc\Router\Http\RouteMatch $routeMatch)
     {
         try {
             $UrlRewrite = new Entity\UrlRewrite();
+            $UrlRewrite->setRewriteUrl($rewriteUrl);
             $UrlRewrite->setRequestUri($requestUri);
-            $UrlRewrite->setRoute($route);
+            $UrlRewrite->setMatchedRouteName($matchedRouteName);
             $UrlRewrite->setRouteMatch($routeMatch->getParams());
             $this->saveUrlRewrite($UrlRewrite);
 

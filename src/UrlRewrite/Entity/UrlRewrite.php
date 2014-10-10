@@ -25,6 +25,13 @@ class UrlRewrite
     /**
      * @var string
      *
+     * @ORM\Column(name="RewriteUrl", type="string", length=255, nullable=false)
+     */
+    private $RewriteUrl;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="requestUri", type="string", length=255, nullable=false)
      */
     private $requestUri;
@@ -32,16 +39,16 @@ class UrlRewrite
     /**
      * @var string
      *
-     * @ORM\Column(name="route", type="string", length=255, nullable=false)
+     * @ORM\Column(name="matchedRouteName", type="string", length=255, nullable=false)
      */
-    private $route;
+    private $matchedRouteName;
 
     /**
      * @var array
      *
-     * @ORM\Column(name="routeMatch", type="array", length=255, nullable=true)
+     * @ORM\Column(name="RouteMatch", type="array", length=255, nullable=false)
      */
-    private $routeMatch;
+    private $RouteMatch;
 
     /**
      * Get id
@@ -51,6 +58,29 @@ class UrlRewrite
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set RewriteUrl
+     *
+     * @param string $rewriteUrl
+     * @return UrlRewrite
+     */
+    public function setRewriteUrl($rewriteUrl)
+    {
+        $this->RewriteUrl = $rewriteUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get RewriteUrl
+     *
+     * @return string 
+     */
+    public function getRewriteUrl()
+    {
+        return $this->RewriteUrl;
     }
 
     /**
@@ -77,48 +107,48 @@ class UrlRewrite
     }
 
     /**
-     * Set route
+     * Set matchedRouteName
      *
-     * @param string $route
+     * @param string $matchedRouteName
      * @return UrlRewrite
      */
-    public function setRoute($route)
+    public function setMatchedRouteName($matchedRouteName)
     {
-        $this->route = $route;
+        $this->matchedRouteName = $matchedRouteName;
 
         return $this;
     }
 
     /**
-     * Get route
+     * Get matchedRouteName
      *
      * @return string 
      */
-    public function getRoute()
+    public function getMatchedRouteName()
     {
-        return $this->route;
+        return $this->matchedRouteName;
     }
 
     /**
-     * Set routeMatch
+     * Set RouteMatch
      *
      * @param array $routeMatch
      * @return UrlRewrite
      */
     public function setRouteMatch($routeMatch)
     {
-        $this->routeMatch = $routeMatch;
+        $this->RouteMatch = $routeMatch;
 
         return $this;
     }
 
     /**
-     * Get routeMatch
+     * Get RouteMatch
      *
-     * @return array
+     * @return array 
      */
     public function getRouteMatch()
     {
-        return $this->routeMatch;
+        return $this->RouteMatch;
     }
 }
