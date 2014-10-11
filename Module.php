@@ -5,7 +5,20 @@ class Module
 {
     public function getConfig()
     {
-        return include __DIR__ . '/config/module.config.php';
+        $files = scandir(__DIR__ . '/config/');
+        if (($key = array_search(".", $files)) !== false) {
+            unset($files[$key]);
+        }
+        if (($key = array_search("..", $files)) !== false) {
+            unset($files[$key]);
+        }
+
+        $config = array();
+        foreach ($files as $file) {
+            $config = \Zend\Stdlib\ArrayUtils::merge($config, include __DIR__ . '/config/' . $file);
+        }
+
+        return $config;
     }
 
     public function getAutoloaderConfig()

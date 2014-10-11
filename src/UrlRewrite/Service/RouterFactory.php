@@ -7,10 +7,6 @@ use Zend\Mvc\Service\RouterFactory as DefaultRouterFactory;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 
-/**
- *
- * @author Cosmin Harangus <cosmin@around25.com>
- */
 class RouterFactory
     extends DefaultRouterFactory
 {

@@ -14,6 +14,8 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 class Custom
     implements RouteInterface, ServiceLocatorAwareInterface
 {
+    protected $routePluginManager = null;
+
     /**
      * RouteInterface to match.
      *
@@ -28,29 +30,18 @@ class Custom
      */
     protected $defaults;
 
-    protected $routePluginManager = null;
-
     /**
-     * Create a new Custom route.
+     * Create a new literal route.
      *
-     * @param  string $regex
-     * @param  string $spec
-     * @param  array  $defaults
      */
-    public function __construct($regex, $spec, array $defaults = array())
+    public function __construct()
     {
-        $this->defaults = $defaults;
-        $this->regex    = $regex;
-        $this->spec     = $spec;
     }
-    //    public function __construct($route, array $defaults = array())
-    //    {
-    //        $this->route    = $route;
-    //        $this->defaults = $defaults;
-    //    }
 
     /**
-     * Create a new route with given options.
+     * factory(): defined by RouteInterface interface.
+     *
+     * @see    \Zend\Mvc\Router\RouteInterface::factory()
      *
      * @param array $options
      *
@@ -58,49 +49,8 @@ class Custom
      */
     public static function factory($options = array())
     {
-        if ($options instanceof \Traversable) {
-            $options = ArrayUtils::iteratorToArray($options);
-        }
-        elseif (!is_array($options)) {
-            throw new \InvalidArgumentException(__METHOD__ . ' expects an array or Traversable set of options');
-        }
-
-        if (!isset($options['regex'])) {
-            throw new \InvalidArgumentException('Missing "regex" in options array');
-        }
-
-        if (!isset($options['spec'])) {
-            throw new \InvalidArgumentException('Missing "spec" in options array');
-        }
-
-        if (!isset($options['defaults'])) {
-            $options['defaults'] = array();
-        }
-
-        return new static($options['regex'], $options['spec'], $options['defaults']);
+        return new static();
     }
-    //    public static function factory($options = array())
-    //    {
-    //        if ($options instanceof \Traversable) {
-    //            $options = ArrayUtils::iteratorToArray($options);
-    //        }
-    //        elseif (!is_array($options)) {
-    //            throw new InvalidArgumentException(
-    //                __METHOD__ . ' expects an array or Traversable set of options'
-    //            );
-    //        }
-    //
-    //        if (!isset($options['route'])) {
-    //            throw new InvalidArgumentException('Missing "route" in options array');
-    //        }
-    //
-    //        if (!isset($options['defaults'])) {
-    //            $options['defaults'] = array();
-    //        }
-    //
-    //        return new static($options['route'], $options['defaults']);
-    //    }
-
 
     /**
      * Match a given request.
